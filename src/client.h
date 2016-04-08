@@ -5,6 +5,10 @@
 #include <Tools/utils.h>
 #include <Tools/accepted_socket.h>
 
+#ifdef max
+	#undef max
+	#undef min
+#endif
 
 struct ClientWork;
 template <typename T>

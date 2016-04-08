@@ -13,15 +13,12 @@ set(LoginServer_SOURCES
 )
 
 # ---[ Load dependencies
-find_package(LibBSON                    REQUIRED)
-find_package(LibMongoC                  REQUIRED)
-find_package(libbsoncxx                 REQUIRED)
-find_package(libmongocxx                REQUIRED)
-find_package(cppformat                  REQUIRED)
-find_package(inih                       REQUIRED)
-find_package(threadpool11               REQUIRED)
-find_package(ReverseTale-Library        REQUIRED)
-find_package(ReverseTale-CommonServer   REQUIRED)
+if (${ReverseTale_DEV})
+    include_directories(${CMAKE_SOURCE_DIR}/src/Library/include)
+    include_directories(${CMAKE_SOURCE_DIR}/src/Common-Server/src)
+else()
+    find_package(ReverseTale-CommonServer   REQUIRED)
+endif()
 
 # ---[ Add definitions and executable
 add_definitions(-DMONGOCXX_STATIC -DBSONCXX_STATIC)
@@ -29,13 +26,11 @@ add_executable(ReverseTale-LoginServer ${LoginServer_SOURCES})
 
 # ---[ Include dependencies directories
 target_include_directories(ReverseTale-LoginServer
-    PRIVATE cppformat
     PRIVATE ReverseTale-CommonServer
 )
 
 # ---[ Link dependencies libraries
 target_link_libraries(ReverseTale-LoginServer
-    cppformat
     ReverseTale-CommonServer
 )
 
