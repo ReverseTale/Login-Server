@@ -16,12 +16,10 @@
 
 #include <cppformat/posix.h>
 
-#include <INIReader.h>
-
 #include <ReverseTale.h>
 #if HAVE_EXPERIMENTAL_FS
 	#include <experimental/filesystem>
-	
+
 	namespace fs = std::experimental::filesystem;
 #else
 	#include <Tools/filesystem.h>
@@ -100,14 +98,14 @@ int main(int argc, char** argv)
 			pass = Utils::Login::decryptPass(pass);
 
 			Packet* gameServers = gFactory->make(PacketType::SERVER_LOGIN);
-			
+
 			std::cout << "Try log as ." << user << ". ." << pass << "." << std::endl;
 
 			bsoncxx::builder::stream::document filter_builder;
 			filter_builder << "_id" << user << "password" << pass;
 			if (db["users"].count(filter_builder.view()) > 0)
 			{
-				
+
 				*gameServers << "NsTeST " << "12345" << " ";
 				*gameServers << "127.0.0.1:4006:0:1.1.Prueba ";
 				*gameServers << "127.0.0.1:4007:4:1.2.Prueba ";
@@ -123,7 +121,7 @@ int main(int argc, char** argv)
 			}
 			else
 			{
-				*gameServers << "fail usuario y/o contraseña incorrectos" << (uint8_t)0xA;
+				*gameServers << "fail usuario y/o contraseï¿½a incorrectos" << (uint8_t)0xA;
 			}
 
 			std::cout << "<< " << gameServers->data() << std::endl;
@@ -147,7 +145,7 @@ int main(int argc, char** argv)
 			client->setUserData(new Client());
 
 			Packet* sessionPacket = gFactory->make(PacketType::SERVER_GAME, client->data()->session(), client->recv());
-			
+
 			auto packets = sessionPacket->decrypt();
 			if (packets.size() != 1)
 			{
@@ -216,7 +214,7 @@ int main(int argc, char** argv)
 		getchar();
 	}
 	*/
-	
+
 	getchar();
 	return 0;
 }
