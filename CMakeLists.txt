@@ -24,11 +24,6 @@ endif()
 add_definitions(-DMONGOCXX_STATIC -DBSONCXX_STATIC)
 add_executable(ReverseTale-LoginServer ${LoginServer_SOURCES})
 
-# ---[ Include dependencies directories
-target_include_directories(ReverseTale-LoginServer
-    PRIVATE ReverseTale-CommonServer
-)
-
 # ---[ Link dependencies libraries
 target_link_libraries(ReverseTale-LoginServer
     ReverseTale-CommonServer
