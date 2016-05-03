@@ -14,7 +14,7 @@
 #include <Tools/utils.h>
 #include <reactor.h>
 
-#include <cppformat/posix.h>
+#include <fmt/posix.h>
 
 #include <ReverseTale.h>
 #if HAVE_EXPERIMENTAL_FS
