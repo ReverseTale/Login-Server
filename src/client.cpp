@@ -1,5 +1,5 @@
-#include "client.h"
-#include "asyncwork.h"
+#include "LoginServer/client.h"
+#include "LoginServer/asyncwork.h"
 
 #include <database.h>
 #include <threadpool.h>
@@ -98,7 +98,7 @@ bool Client::handleLoginResult(FutureWork<int64_t>* work)
 	}
 	else
 	{
-		sendError("Usuario y/o contraseña incorrectos\rPrueba de nuevo!");
+		sendError("Usuario y/o contraseï¿½a incorrectos\rPrueba de nuevo!");
 	}
 
 	close();
