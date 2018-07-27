@@ -1,8 +1,8 @@
 #include "LoginServer/client.h"
 #include "LoginServer/asyncwork.h"
 
-#include <database.h>
-#include <threadpool.h>
+#include <CommonServer/database.h>
+#include <CommonServer/threadpool.h>
 
 #include <Game/packet.h>
 #include <threadpool11/threadpool11.hpp>

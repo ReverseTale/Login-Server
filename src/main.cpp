@@ -12,11 +12,11 @@
 #include <Tools/server_socket.h>
 #include <Tools/accepted_socket.h>
 #include <Tools/utils.h>
-#include <reactor.h>
+#include <CommonServer/reactor.h>
 
 #include <fmt/posix.h>
 
-#include <ReverseTale.h>
+#include <CommonServer/ReverseTale.h>
 #if HAVE_EXPERIMENTAL_FS
 	#include <experimental/filesystem>
 
@@ -25,9 +25,9 @@
 	#include <Tools/filesystem.h>
 #endif
 
-#include "database.h"
-#include "asyncwork.h"
-#include "client.h"
+#include "CommonServer/database.h"
+#include "LoginServer/asyncwork.h"
+#include "LoginServer/client.h"
 
 
 using namespace Net;
