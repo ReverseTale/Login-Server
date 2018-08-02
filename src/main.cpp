@@ -46,7 +46,7 @@ int main(int argc, char** argv)
 
 	ServerSocket socket(AF_INET, SOCK_STREAM, IPPROTO_IP);
 	Reactor<Client> reactor(&socket, 128, 100);
-	reactor.start(4005);
+	reactor.start(4001);
 
 	Database::initialize({}, "login");
 	assert(gPool->getActiveWorkerCount() < gPool->getWorkerCount() && "Not enought threads to continue");
