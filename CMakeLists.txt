@@ -42,16 +42,13 @@ if (ReverseTale-LoginServer_IS_RESOLVED)
         PLATFORM UNIX
     )
 
-    # ---[ Setup some definitions
-    set(DEFINITIONS "BSON_STATIC" "MONGOCXX_STATIC" "BSONCXX_STATIC" "_SCL_SECURE_NO_WARNINGS")
-
-	BuildNow(
-		TARGET ReverseTale-LoginServer
-		DEFINES ${DEFINITIONS}
-		EXECUTABLE
-		OUTPUT_NAME LoginServer
-		C++11
-	)
+    BuildNow(
+        TARGET ReverseTale-LoginServer
+        EXECUTABLE
+        OUTPUT_NAME LoginServer
+        DEFINES ${DEFINITIONS}
+        C++11
+    )
 
     MakeInstallable(TARGET ReverseTale-LoginServer)
 endif()
