@@ -51,4 +51,12 @@ if (ReverseTale-LoginServer_IS_RESOLVED)
     )
 
     MakeInstallable(TARGET ReverseTale-LoginServer)
+
+    # Create a Visual Studio Code workspace
+    ExternalInstallDirectory(VARIABLE EXTERNAL_DIRECTORY)
+    get_filename_component(LIBRARY_PATH ${EXTERNAL_DIRECTORY}/src/ReverseTale_Library_master/ ABSOLUTE)
+    get_filename_component(COMMON_SERVER_PATH ${EXTERNAL_DIRECTORY}/src/ReverseTale_Common-Server_master/ ABSOLUTE)
+    get_filename_component(LOGIN_SERVER_PATH ${CMAKE_SOURCE_DIR} ABSOLUTE)
+    configure_file(${CMAKE_SOURCE_DIR}/project.code-workspace.in ${CMAKE_SOURCE_DIR}/project.code-workspace @ONLY)
 endif()
+
